@@ -1,11 +1,11 @@
 <template>
   <main>
-      Film
+      <Film/>
   </main>
 </template>
 
 <script>
-import Film from "./components/Film.vue";
+import Film from "./Film.vue";
 export default {
     name:"Main",
     components:{
