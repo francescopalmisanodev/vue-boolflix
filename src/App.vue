@@ -1,7 +1,7 @@
 <template>
 <div class="container">
   <Header @search="searchFilm"/>
-  <Main/>
+  <Main :movies="searchedFilm"/>
 </div>
 </template>
 
@@ -31,7 +31,7 @@ export default {
         }
       })
       .then(result=>{
-        this.searchedFilm=result.data;
+        this.searchedFilm=result.data.results;
       }).catch(err=>console.error(err));
     },
   }

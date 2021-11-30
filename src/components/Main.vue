@@ -1,6 +1,11 @@
 <template>
   <main>
-      <Film/>
+      <Film v-for="movie in movies" :key="movie.id" 
+      :title="movie.title"
+      :orgTitle="movie.original_title"
+      :language="movie.original_language"
+      :vote="movie.vote_average"
+      />
   </main>
 </template>
 
@@ -10,7 +15,10 @@ export default {
     name:"Main",
     components:{
         Film,
-    }
+    },
+    props:{
+        movies: Array,
+    },
 }
 </script>
 
