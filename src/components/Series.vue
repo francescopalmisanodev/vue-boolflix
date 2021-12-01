@@ -2,19 +2,19 @@
   <div class="card">
     <img :src="`https://image.tmdb.org/t/p/w154${poster}`" :alt="title">
     <ul>
-      <li>Titolo del Film: {{title}}</li>
-      <li>Titolo originale del Film: {{orgTitle}}</li>
-      <li>Lingua del Film: <img v-if="Flags.includes(language)" :src="require(`@/boolflix-flags/${language}.png`)" :alt="language">
+      <li>Titolo della Serie: {{title}}</li>
+      <li>Titolo originale della Serie: {{orgTitle}}</li>
+      <li>Lingua della Serie: <img v-if="Flags.includes(language)" :src="require(`@/boolflix-flags/${language}.png`)" :alt="language">
       <span v-else>{{language}}</span>
       </li>
-      <li>Voto del Film: {{vote}}</li>
+      <li>Voto della Serie: {{vote}}</li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
-    name:"Film",
+    name:"Series",
     data(){
       return{
         Flags: ["it", "en"],
@@ -31,11 +31,4 @@ export default {
 </script>
 
 <style lang="scss">
- .card{
-   li{
-     img{
-       width: 25px;
-     }
-   }
- } 
 </style>
