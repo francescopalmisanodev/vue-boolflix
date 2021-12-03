@@ -1,6 +1,7 @@
 <template>
   <div class="card">
-    <img :src="`https://image.tmdb.org/t/p/w342${poster}`" :alt="title">
+    <img v-if="poster" :src="`https://image.tmdb.org/t/p/w342${poster}`" :alt="title">
+    <img v-else src="https://www.repstatic.it/content/nazionale/img/2013/11/13/140555543-efd9a67a-c4d7-48e5-80d6-2c1583b2c752.jpg?webp" :alt="title">
     <ul>
       <li>Titolo: {{title}}</li>
       <li>Titolo: {{orgTitle}}</li>
@@ -48,6 +49,7 @@ export default {
    overflow: hidden;
    img{
      width: 100%;
+     height: 100%;
    }
    ul{
      display: none;
