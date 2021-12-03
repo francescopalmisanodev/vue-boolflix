@@ -7,7 +7,7 @@
       :vote="movie.vote_average"
       :poster="movie.poster_path"
       />
-      <Series v-for="serie in series" :key="serie.id" 
+      <Film v-for="serie in series" :key="serie.id" 
       :title="serie.name"
       :orgTitle="serie.original_name"
       :language="serie.original_language"
@@ -19,13 +19,11 @@
 
 <script>
 import Film from "./Film.vue";
-import Series from "./Series.vue";
 
 export default {
     name:"Main",
     components:{
         Film,
-        Series,
     },
     props:{
         movies: Array,

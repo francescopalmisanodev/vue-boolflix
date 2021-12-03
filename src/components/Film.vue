@@ -2,12 +2,12 @@
   <div class="card">
     <img :src="`https://image.tmdb.org/t/p/w154${poster}`" :alt="title">
     <ul>
-      <li>Titolo del Film: {{title}}</li>
-      <li>Titolo originale del Film: {{orgTitle}}</li>
-      <li>Lingua del Film: <img v-if="Flags.includes(language)" :src="require(`@/boolflix-flags/${language}.png`)" :alt="language">
+      <li>Titolo: {{title}}</li>
+      <li>Titolo: {{orgTitle}}</li>
+      <li>Lingua: <img v-if="Flags.includes(language)" :src="require(`@/boolflix-flags/${language}.png`)" :alt="language">
       <span v-else>{{language}}</span>
       </li>
-      <li>Voto del Film: {{vote}}</li>
+      <li>Voto: <i v-for="i in 5" :key="i" :class="{yellowStar: i<voteConverter()}" class="fa-solid fa-star"></i></li>
     </ul>
   </div>
 </template>
@@ -26,6 +26,11 @@ export default {
       language:String,
       vote:Number,
       poster:String,
+    },
+    methods:{
+      voteConverter(){
+        return parseInt(this.vote/2)
+      }
     }
 }
 </script>
@@ -33,6 +38,9 @@ export default {
 <style lang="scss">
  .card{
    li{
+     .yellowStar{
+       color:yellow;
+     }
      img{
        width: 25px;
      }
