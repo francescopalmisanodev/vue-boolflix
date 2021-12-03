@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <img :src="`https://image.tmdb.org/t/p/w154${poster}`" :alt="title">
+    <img :src="`https://image.tmdb.org/t/p/w342${poster}`" :alt="title">
     <ul>
       <li>Titolo: {{title}}</li>
       <li>Titolo: {{orgTitle}}</li>
@@ -8,6 +8,7 @@
       <span v-else>{{language}}</span>
       </li>
       <li>Voto: <i v-for="i in 5" :key="i" :class="{yellowStar: i<voteConverter()}" class="fa-solid fa-star"></i></li>
+      <li>Overview:{{overview}}</li>
     </ul>
   </div>
 </template>
@@ -26,6 +27,7 @@ export default {
       language:String,
       vote:Number,
       poster:String,
+      overview:String,
     },
     methods:{
       voteConverter(){
@@ -36,14 +38,53 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../scss/variables.scss";
  .card{
-   li{
-     .yellowStar{
-       color:yellow;
-     }
-     img{
-       width: 25px;
+   width:20%;
+   height: 350px;
+   margin:20px;
+   border:3px solid black;
+   position: relative;
+   overflow: hidden;
+   img{
+     width: 100%;
+   }
+   ul{
+     display: none;
+     padding: 10%;
+     width: 100%;
+     max-height: 70%;
+     overflow: hidden;
+     list-style: none;
+     position:absolute;
+     top:50%;
+     right:50%;
+     transform: translate(50%, -50%);
+     li{
+       i{
+         color: gray;
+       }
+       .yellowStar{
+         color:yellow;
+       }
+       img{
+         width: 25px;
+       }
      }
    }
  } 
+ .card:hover{
+   background-color:$paragraph;
+   img{
+     display: none;
+   }
+   ul{
+     color:black;
+     display: flex;
+     flex-direction: column;
+     img{
+       display: inline-block;
+     }
+   }
+ }
 </style>

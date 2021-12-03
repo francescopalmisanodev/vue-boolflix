@@ -52,5 +52,15 @@ export default {
 </script>
 
 <style lang="scss">
-
+@import "./scss/global.scss"; 
+.container {
+  color:$txt-color;
+  background-color:#004643;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  Main{
+    flex-grow: 1;
+  }
+}
 </style>
